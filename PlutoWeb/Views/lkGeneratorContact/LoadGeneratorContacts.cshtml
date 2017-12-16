@@ -1,0 +1,70 @@
+﻿@model  PlutoWeb.Models.AlphabeticalPagingViewModel
+
+<br />
+<div class="panel panel-primary">
+    <div class="panel-heading panel-head">Generator Contacts Listing</div>
+
+    <div class="panel-body">
+
+        <h3>Generator Contacts Listing</h3>
+        @Html.AlphabeticalPager(Model.SelectedLetter, Model.FirstLetters, x => Url.Action("LoadGeneratorContacts", new { selectedLetter = x }))
+
+        <table class="table" style="margin: 4px">
+
+            <tr>
+                <th>
+                    @Html.DisplayName("Contact ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Generator ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Contact Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Phone")
+                </th>
+                <th>
+                    @Html.DisplayName("Cell #")
+                </th>
+                <th>
+                    @Html.DisplayName("Fax #")
+                </th>
+                 
+            </tr>
+
+            @foreach (var item in Model.GeneratorContactPaging)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GenerContactId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GenerContactGenerId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GenerContactName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GenerContactPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GenerContactCell)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GenerContactFax)
+                    </td>
+
+                </tr>
+            }
+        </table>
+
+
+
+
+    </div>
+    @Html.AlphabeticalPager(Model.SelectedLetter, Model.FirstLetters, x => Url.Action("LoadGeneratorContacts", new { selectedLetter = x }))
+
+
+</div>
+
