@@ -1,0 +1,51 @@
+﻿@model  PlutoWeb.Models.AlphabeticalPagingViewModel
+
+<br />
+<div class="panel panel-primary">
+    <div class="panel-heading panel-head">Generator Location Listing</div>
+
+    <div class="panel-body">
+
+        <h3>Generator Location Listing</h3>
+        @Html.AlphabeticalPager(Model.SelectedLetter, Model.FirstLetters, x => Url.Action("LoadGeneratorLocation", new { selectedLetter = x }))
+
+        <table class="table" style="margin: 4px">
+
+            <tr>
+                <th>
+                    @Html.DisplayName("Generator Location ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Generator Location Gen ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Generator Location lSD")
+                </th>
+        
+            </tr>
+
+            @foreach (var item in Model.GeneratorLocationPaging)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GenerLocationId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GenerLocationGenID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GenerLocationLsd)
+                    </td>
+                </tr>
+            }
+        </table>
+
+
+
+
+    </div>
+    @Html.AlphabeticalPager(Model.SelectedLetter, Model.FirstLetters, x => Url.Action("LoadGeneratorLocation", new { selectedLetter = x }))
+
+
+</div>
+

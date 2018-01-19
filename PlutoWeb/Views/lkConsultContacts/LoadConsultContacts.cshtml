@@ -1,0 +1,58 @@
+﻿@model  PlutoWeb.Models.AlphabeticalPagingViewModel
+
+<br />
+<div class="panel panel-primary">
+    <div class="panel-heading panel-head">Truck Company Listing</div>
+
+    <div class="panel-body">
+
+        <h3>Truck Company Listing</h3>
+        @Html.AlphabeticalPager(Model.SelectedLetter, Model.FirstLetters, x => Url.Action("LoadConsultContacts", new { selectedLetter = x }))
+
+        <table class="table" style="margin: 4px">
+
+            <tr>
+                <th>
+                    @Html.DisplayName("Contact ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Consultant Contact Id")
+                </th>
+                <th>
+                    @Html.DisplayName("Contact Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Phone")
+                </th> 
+            </tr>
+
+            @foreach (var item in Model.ConsultContactPaging)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ConsultantContactId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ConsultantContactConsultId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ConsultantContactName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ConsultantContactPhone)
+                    </td>
+                 
+
+                </tr>
+            }
+        </table>
+
+
+
+
+    </div>
+    @Html.AlphabeticalPager(Model.SelectedLetter, Model.FirstLetters, x => Url.Action("LoadConsultContacts", new { selectedLetter = x }))
+
+
+</div>
+
