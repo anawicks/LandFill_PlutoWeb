@@ -13,10 +13,16 @@ namespace PlutoWeb.Controllers
         private readonly IUnitOfWork _unitOfWork;
         public lkConsultantController(IUnitOfWork unitOfWork)
         {
+            //Git Hub Test 111
             _unitOfWork = unitOfWork;
         }
+    
         // GET: lkConsultant
         public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult GitHubRepo()
         {
             return View();
         }
